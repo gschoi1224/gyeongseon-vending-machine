@@ -1,0 +1,74 @@
+[
+  {
+    "slotId": "A1",
+    "position": { "row": 0, "col": 0 },
+    "drinkId": "pepsizero",
+    "stock": 5
+  },
+  {
+    "slotId": "A2",
+    "position": { "row": 0, "col": 1 },
+    "drinkId": "pepsizero",
+    "stock": 3
+  },
+  {
+    "slotId": "A3",
+    "position": { "row": 0, "col": 2 },
+    "drinkId": "cocacola",
+    "stock": 2
+  },
+  {
+    "slotId": "A4",
+    "position": { "row": 0, "col": 3 },
+    "drinkId": "cocacola",
+    "stock": 3
+  },
+  {
+    "slotId": "B1",
+    "position": { "row": 1, "col": 0 },
+    "drinkId": "evian",
+    "stock": 2
+  },
+  {
+    "slotId": "B2",
+    "position": { "row": 1, "col": 1 },
+    "drinkId": "evian",
+    "stock": 4
+  },
+  {
+    "slotId": "B3",
+    "position": { "row": 1, "col": 2 },
+    "drinkId": "samdasu",
+    "stock": 5
+  },
+  {
+    "slotId": "B4",
+    "position": { "row": 1, "col": 3 },
+    "drinkId": "samdasu",
+    "stock": 5
+  },
+  {
+    "slotId": "C1",
+    "position": { "row": 2, "col": 0 },
+    "drinkId": "top",
+    "stock": 1
+  },
+  {
+    "slotId": "C2",
+    "position": { "row": 2, "col": 1 },
+    "drinkId": "top",
+    "stock": 4
+  },
+  {
+    "slotId": "C3",
+    "position": { "row": 2, "col": 2 },
+    "drinkId": "cantata",
+    "stock": 1
+  },
+  {
+    "slotId": "C4",
+    "position": { "row": 2, "col": 3 },
+    "drinkId": "cantata",
+    "stock": 4
+  }
+]

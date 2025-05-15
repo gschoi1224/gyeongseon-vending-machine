@@ -1,0 +1,9 @@
+[
+  { "amount": 50000, "type": "bill", "count": 2 },
+  { "amount": 10000, "type": "bill", "count": 4 },
+  { "amount": 5000, "type": "bill", "count": 3 },
+  { "amount": 1000, "type": "bill", "count": 5 },
+  { "amount": 500, "type": "coin", "count": 10 },
+  { "amount": 100, "type": "coin", "count": 20 },
+  { "amount": 50, "type": "coin", "count": 30 }
+]

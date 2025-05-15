@@ -1,0 +1,44 @@
+[
+  {
+    "id": "cantata",
+    "name": "칸타타",
+    "price": 700,
+    "image": "/drink/cantata.png",
+    "type": "coffee"
+  },
+  {
+    "id": "top",
+    "name": "TOP",
+    "price": 700,
+    "image": "/drink/top.png",
+    "type": "coffee"
+  },
+  {
+    "id": "evian",
+    "name": "에비앙",
+    "price": 600,
+    "image": "/drink/evian.jpeg",
+    "type": "water"
+  },
+  {
+    "id": "samdasu",
+    "name": "삼다수",
+    "price": 600,
+    "image": "/drink/samdasu.png",
+    "type": "water"
+  },
+  {
+    "id": "cocacola",
+    "name": "코카콜라",
+    "price": 1100,
+    "image": "/drink/cocacola.png",
+    "type": "soda"
+  },
+  {
+    "id": "pepsizero",
+    "name": "펩시제로",
+    "price": 1100,
+    "image": "/drink/pepsizero.png",
+    "type": "soda"
+  }
+]
