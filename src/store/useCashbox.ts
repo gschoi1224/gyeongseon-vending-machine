@@ -11,6 +11,7 @@ interface CashboxStore {
   loadCash: (data: CashUnit[]) => void;
   increment: (amount: number) => void;
   decrement: (amount: number) => void;
+  insert: (amount: number) => void;
 }
 
 export const useCashbox = create<CashboxStore>((set) => ({
@@ -26,6 +27,12 @@ export const useCashbox = create<CashboxStore>((set) => ({
     set((state) => ({
       cash: state.cash.map((unit) =>
         unit.amount === amount && unit.count > 0 ? { ...unit, count: unit.count - 1 } : unit
+      ),
+    })),
+  insert: (amount: number) =>
+    set((state) => ({
+      cash: state.cash.map((unit) =>
+        unit.amount === amount ? { ...unit, count: unit.count + 1 } : unit
       ),
     })),
 }));

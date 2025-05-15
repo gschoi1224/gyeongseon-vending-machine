@@ -16,3 +16,5 @@ export const currencies: Currency[] = [
   { amount: 10000, type: 'bill', image: '/currency/10000.jpeg' },
   { amount: 50000, type: 'bill', image: '/currency/50000.jpeg' },
 ];
+
+export const ALLOWED_CURRENCIES = [100, 500, 1000, 5000, 10000];
