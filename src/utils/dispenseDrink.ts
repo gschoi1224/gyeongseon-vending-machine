@@ -17,7 +17,13 @@ export default function dispenseDrink(slotId: string) {
   const drink = getDrinkById(slot.drinkId);
   if (!drink) return;
 
-  if (slot.stock <= 0) return;
+  if (slot.stock <= 0) {
+    setStatus('EMPTY');
+    setTimeout(() => {
+      setStatus('READY');
+    }, 2000);
+    return;
+  }
 
   const { inserted } = useCard.getState();
 

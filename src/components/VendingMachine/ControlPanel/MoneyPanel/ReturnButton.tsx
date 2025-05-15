@@ -1,9 +1,13 @@
+import { useEffect } from 'react';
 import { useBalance } from '../../../../store/useBalance';
 import { useCashbox } from '../../../../store/useCashbox';
-import { useChangeReturn } from '../../../../store/useChangeReturn';
+import { useStatus } from '../../../../store/useStatus';
 import { calculateChange } from '../../../../utils/calculateChange';
+import { useChangeReturn } from '../../../../store/useChangeReturn';
 
 export default function ReturnButton() {
+  const queue = useChangeReturn((s) => s.queue);
+  const { setStatus } = useStatus.getState();
   const handleReturn = () => {
     const balance = useBalance.getState().amount;
     const cashbox = useCashbox.getState().cash;
@@ -14,6 +18,7 @@ export default function ReturnButton() {
       return;
     }
 
+    setStatus('RETURNING');
     change.forEach(({ amount, count }) => {
       for (let i = 0; i < count; i++) {
         useCashbox.getState().decrement(amount);
@@ -26,6 +31,18 @@ export default function ReturnButton() {
 
     useBalance.getState().reset();
   };
+
+  useEffect(() => {
+    if (queue.length === 0) {
+      // 지연 후 상태 복구
+      const timeout = setTimeout(() => {
+        setStatus('READY');
+      }, 300); // 큐가 다 빠졌는지 확인한 후 딜레이
+
+      return () => clearTimeout(timeout);
+    }
+  }, [queue]);
+
   return (
     <button
       onClick={handleReturn}
