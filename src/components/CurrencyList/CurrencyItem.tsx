@@ -29,7 +29,7 @@ export default function CurrencyItem({ amount, type, image }: CurrencyItemProps)
       <img
         src={image}
         alt={`${amount}원`}
-        className={`object-contain cursor-grab transition-opacity duration-200 ${sizeClasses}`}
+        className={`object-contain cursor-pointer transition-opacity duration-200 ${sizeClasses}`}
         draggable={false}
       />
     </button>
