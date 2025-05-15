@@ -1,5 +1,7 @@
+import VendingMachine from './VendingMachine';
+
 function App() {
-  return <></>;
+  return <VendingMachine />;
 }
 
 export default App;
