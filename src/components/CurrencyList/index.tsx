@@ -1,4 +1,4 @@
-import { currencies } from '../data/currency';
+import { currencies } from '../../data/currency';
 import CurrencyItem from './CurrencyItem';
 
 export default function CurrencyList() {

@@ -1,4 +1,4 @@
-import type { CurrencyType } from '../data/currency';
+import type { CurrencyType } from '../../data/currency';
 
 export interface CurrencyItemProps {
   amount: number;

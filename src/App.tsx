@@ -1,5 +1,5 @@
-import CurrencyList from './\bCurrencyList';
-import VendingMachine from './VendingMachine';
+import CurrencyList from './components/CurrencyList';
+import VendingMachine from './components/VendingMachine';
 
 function App() {
   return (
