@@ -6,7 +6,8 @@ export type VendingState =
   | 'WAITING'
   | 'DISPENSING'
   | 'OUT_OF_ORDER'
-  | 'INSUFFICIENT';
+  | 'INSUFFICIENT'
+  | 'RETURNING';
 
 interface StatusStore {
   status: VendingState;
@@ -22,6 +23,7 @@ const statusMessageMap: Record<VendingState, string> = {
   OUT_OF_ORDER: 'ERROR',
   INVALID: 'INVALID',
   INSUFFICIENT: 'INSUFF',
+  RETURNING: 'RETURN',
 };
 
 export const useStatus = create<StatusStore>((set) => ({

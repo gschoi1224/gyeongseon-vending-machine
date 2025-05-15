@@ -21,7 +21,7 @@ export default function dispenseDrink(slotId: string) {
   if (amount < drink.price) {
     const short = drink.price - amount;
     setStatus('INSUFFICIENT');
-    setMessage(`₩${short} 부족`);
+    setMessage(`-₩${short}`);
 
     setTimeout(() => {
       setStatus('READY');
