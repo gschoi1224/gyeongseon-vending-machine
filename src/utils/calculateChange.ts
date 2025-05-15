@@ -8,19 +8,30 @@ interface ChangeResult {
   count: number;
 }
 
-export function calculateChange(balance: number, cashbox: CashUnit[]): ChangeResult[] | null {
+interface ChangeOutput {
+  change: ChangeResult[]; // 반환 가능한 화폐
+  unreturned: number; // 반환 못한 금액
+}
+
+export default function calculateChangeWithRemainder(
+  balance: number,
+  cashbox: CashUnit[]
+): ChangeOutput {
   const sorted = [...cashbox].sort((a, b) => b.amount - a.amount);
   const result: ChangeResult[] = [];
   let remaining = balance;
 
   for (const unit of sorted) {
     const usable = Math.min(unit.count, Math.floor(remaining / unit.amount));
+    console.log(unit, usable, remaining);
     if (usable > 0) {
       result.push({ amount: unit.amount, count: usable });
       remaining -= usable * unit.amount;
     }
   }
 
-  if (remaining > 0) return null; // 잔돈 부족
-  return result;
+  return {
+    change: result,
+    unreturned: remaining,
+  };
 }

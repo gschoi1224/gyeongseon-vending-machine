@@ -2,24 +2,40 @@ import { useEffect } from 'react';
 import { useBalance } from '../../../../store/useBalance';
 import { useCashbox } from '../../../../store/useCashbox';
 import { useStatus } from '../../../../store/useStatus';
-import { calculateChange } from '../../../../utils/calculateChange';
+import calculateChangeWithRemainder from '../../../../utils/calculateChange';
 import { useChangeReturn } from '../../../../store/useChangeReturn';
 
 export default function ReturnButton() {
   const queue = useChangeReturn((s) => s.queue);
-  const { setStatus } = useStatus.getState();
+  const { setStatus, setMessage } = useStatus.getState();
   const handleReturn = () => {
     const balance = useBalance.getState().amount;
-    const cashbox = useCashbox.getState().cash;
-    const change = calculateChange(balance, cashbox);
 
-    if (!change || change.length === 0) {
-      console.warn('거스름돈을 줄 수 없습니다');
+    if (balance <= 0) {
+      console.warn('반환할 금액이 없습니다');
+      setStatus('EMPTY');
+      setTimeout(() => {
+        setStatus('READY');
+      }, 2000);
+      return;
+    }
+
+    const cashbox = useCashbox.getState().cash;
+    console.log(cashbox);
+    const { change, unreturned } = calculateChangeWithRemainder(balance, cashbox);
+
+    if (unreturned > 0) {
+      console.warn('거스름돈이 부족합니다.');
+      setStatus('INSUFFICIENT');
+      setMessage('NOCHNG');
+      setTimeout(() => {
+        setStatus('READY');
+      }, 2000);
       return;
     }
 
     setStatus('RETURNING');
-    change.forEach(({ amount, count }) => {
+    change?.forEach(({ amount, count }) => {
       for (let i = 0; i < count; i++) {
         useCashbox.getState().decrement(amount);
         useChangeReturn.getState().push({
@@ -29,7 +45,7 @@ export default function ReturnButton() {
       }
     });
 
-    useBalance.getState().reset();
+    useBalance.getState().decrease(balance - unreturned);
   };
 
   useEffect(() => {
