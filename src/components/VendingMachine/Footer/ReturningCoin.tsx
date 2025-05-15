@@ -24,12 +24,12 @@ export default function ReturningCoin() {
   if (!current) return null;
 
   return (
-    <div className="absolute top-0 left-0 w-10 h-20 overflow-visible flex justify-center">
+    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-10 h-20 overflow-visible">
       <img
         key={current.id}
         src={getCurrencyImage(current.amount)}
         alt={`${current.amount}`}
-        className="absolute animate-coinFall w-6 h-6"
+        className="absolute animate-coinFall w-10 h-10"
         onAnimationEnd={handleEnd}
       />
     </div>
