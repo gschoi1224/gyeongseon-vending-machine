@@ -21,7 +21,6 @@ export default function ReturnButton() {
     }
 
     const cashbox = useCashbox.getState().cash;
-    console.log(cashbox);
     const { change, unreturned } = calculateChangeWithRemainder(balance, cashbox);
 
     if (unreturned > 0) {

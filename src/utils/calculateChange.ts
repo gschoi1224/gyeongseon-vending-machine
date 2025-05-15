@@ -23,7 +23,6 @@ export default function calculateChangeWithRemainder(
 
   for (const unit of sorted) {
     const usable = Math.min(unit.count, Math.floor(remaining / unit.amount));
-    console.log(unit, usable, remaining);
     if (usable > 0) {
       result.push({ amount: unit.amount, count: usable });
       remaining -= usable * unit.amount;
