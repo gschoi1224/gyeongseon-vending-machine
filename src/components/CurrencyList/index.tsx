@@ -1,4 +1,5 @@
 import { currencies } from '../../data/currency';
+import { CardSelector } from './CardSelector';
 import CurrencyItem from './CurrencyItem';
 
 export default function CurrencyList() {
@@ -7,6 +8,7 @@ export default function CurrencyList() {
       {currencies.map((cur) => (
         <CurrencyItem key={cur.amount} amount={cur.amount} type={cur.type} image={cur.image} />
       ))}
+      <CardSelector />
     </ul>
   );
 }
