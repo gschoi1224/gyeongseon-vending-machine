@@ -1,6 +1,12 @@
 import { create } from 'zustand';
 
-export type VendingState = 'READY' | 'INVALID' | 'WAITING' | 'DISPENSING' | 'OUT_OF_ORDER';
+export type VendingState =
+  | 'READY'
+  | 'INVALID'
+  | 'WAITING'
+  | 'DISPENSING'
+  | 'OUT_OF_ORDER'
+  | 'INSUFFICIENT';
 
 interface StatusStore {
   status: VendingState;
@@ -15,6 +21,7 @@ const statusMessageMap: Record<VendingState, string> = {
   DISPENSING: 'THANKS',
   OUT_OF_ORDER: 'ERROR',
   INVALID: 'INVALID',
+  INSUFFICIENT: 'INSUFF',
 };
 
 export const useStatus = create<StatusStore>((set) => ({

@@ -16,6 +16,7 @@ export default function DrinkGrid() {
           isLast={i % 4 === 3}
           isFirst={i % 4 === 0}
           stock={slot.stock}
+          slotId={slot.slotId}
         />
       ))}
     </ul>
