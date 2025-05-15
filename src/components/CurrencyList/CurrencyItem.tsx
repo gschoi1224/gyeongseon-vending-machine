@@ -10,7 +10,7 @@ export interface CurrencyItemProps {
 }
 
 export default function CurrencyItem({ amount, type, image }: CurrencyItemProps) {
-  const sizeClasses = type === 'coin' ? 'w-15 h-15' : 'w-30 h-20';
+  const sizeClasses = type === 'coin' ? 'w-20 h-20' : 'w-40 h-30';
   const { status, setStatus } = useStatus();
 
   function handleInsert() {

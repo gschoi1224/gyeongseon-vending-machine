@@ -1,7 +1,7 @@
 export default function Ad() {
   return (
     <div className="bg-white w-50 h-full rounded-lg shadow-inner">
-      {/* 이미지나 안내 텍스트 삽입 */}
+      <img src={'/ad.webp'} className="object-cover w-full h-full rounded-lg" alt="Ad" />
     </div>
   );
 }

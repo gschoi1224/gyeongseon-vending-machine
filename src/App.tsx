@@ -34,7 +34,7 @@ function App() {
     });
   }, []);
   return (
-    <main className="flex">
+    <main className="flex w-full min-h-lvh justify-center items-center">
       <VendingMachine />
       <CurrencyList />
     </main>
