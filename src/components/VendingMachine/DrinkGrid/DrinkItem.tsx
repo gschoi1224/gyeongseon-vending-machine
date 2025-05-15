@@ -43,7 +43,7 @@ export default function DrinkItem({ drinkId, stock, slotId, isLast, isFirst }: D
           }}
         >
           <div
-            className={`w-2 h-2 rounded-full absolute left-1 top-1/2 -translate-y-1/2 ${status === 'READY' ? 'bg-red-500' : 'bg-white'}`}
+            className={`w-2 h-2 rounded-full absolute left-1 top-1/2 -translate-y-1/2 ${status === 'READY' && stock > 0 ? 'bg-red-500' : 'bg-white'}`}
           />
         </button>
       </div>
