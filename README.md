@@ -1,54 +1,53 @@
-# React + TypeScript + Vite
+# Gyeongseon Vending Machine
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 프로젝트 구조
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+gyeongseon-vending-machine/
+├── public/             # 정적 파일
+├── src/                # 소스 코드
+│   ├── assets/         # 이미지, 스타일 등 에셋 파일
+│   ├── components/     # 재사용 가능한 컴포넌트
+│   ├── pages/          # 페이지 단위 컴포넌트
+│   ├── hooks/          # 커스텀 훅
+│   ├── utils/          # 유틸리티 함수
+│   └── main.tsx        # 애플리케이션 진입점
+├── .gitignore          # Git 무시 파일 설정
+├── package.json        # 프로젝트 의존성 및 스크립트
+├── pnpm-lock.yaml      # pnpm 잠금 파일
+├── tsconfig.json       # TypeScript 설정
+└── vite.config.ts      # Vite 설정
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 실행 방법
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. **의존성 설치**
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+pnpm install
 ```
+
+2. **개발 서버 실행**
+
+```bash
+pnpm dev
+```
+
+3. **프로덕션 빌드**
+
+```bash
+pnpm build
+```
+
+4. **빌드 결과물 미리보기**
+
+```bash
+pnpm preview
+```
+
+## 기술 스택
+
+- **프론트엔드 프레임워크**: React
+- **번들러**: Vite
+- **패키지 매니저**: pnpm
+- **언어**: TypeScript
