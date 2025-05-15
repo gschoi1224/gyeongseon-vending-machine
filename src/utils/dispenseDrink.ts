@@ -3,6 +3,7 @@ import { useDispense } from '../store/useDispense';
 import { useDrinks } from '../store/useDrink';
 import { useStatus } from '../store/useStatus';
 import { useVending } from '../store/useVending';
+import { useCard } from '../store/useCard';
 
 export default function dispenseDrink(slotId: string) {
   const { slots, decreaseStock } = useVending.getState();
@@ -18,7 +19,9 @@ export default function dispenseDrink(slotId: string) {
 
   if (slot.stock <= 0) return;
 
-  if (amount < drink.price) {
+  const { inserted } = useCard.getState();
+
+  if (amount < drink.price && !inserted) {
     const short = drink.price - amount;
     setStatus('INSUFFICIENT');
     setMessage(`-₩${short}`);
@@ -30,9 +33,10 @@ export default function dispenseDrink(slotId: string) {
     return;
   }
 
-  // 상태 변경 및 재고/잔액 처리
   setStatus('DISPENSING');
-  decrease(drink.price);
+  if (amount >= drink.price) {
+    decrease(drink.price);
+  }
   decreaseStock(slotId);
 
   useDispense.getState().trigger(drink.image);
