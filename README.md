@@ -1,4 +1,4 @@
-# Gyeongseon Vending Machine
+# Vending Machine
 
 ## 도식화
 
